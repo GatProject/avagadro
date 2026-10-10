@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День Моля · 6.02×10²³</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0e27;
+            --bg-soft: #131a3a;
+            --card: #1a2247;
+            --card-hover: #212a55;
+            --neon: #00f5d4;
+            --neon-2: #f15bb5;
+            --neon-3: #fee440;
+            --neon-4: #9b5de5;
+            --text: #e8ecff;
+            --text-dim: #8b93b8;
+            --border: rgba(0, 245, 212, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Анімований фон з частинками */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 245, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(155, 93, 229, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(241, 91, 181, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseBg 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* ===== ШАПКА ===== */
+        header {
+            position: relative;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon);
+            top: -150px;
+            left: -100px;
+            animation: float1 12s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--neon-4);
+            top: -100px;
+            right: -100px;
+            animation: float2 14s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 30px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-40px, 40px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--neon);
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--neon);
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 245, 212, 0.05);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon) 0%, var(--neon-3) 50%, var(--neon-2) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(0, 245, 212, 0.3));
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-dim);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Число Авогадро в шапці */
+        .avogadro-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: var(--neon-3);
+            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            background: rgba(254, 228, 64, 0.08);
+            border: 1px solid rgba(254, 228, 64, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(254, 228, 64, 0.15);
+            text-shadow: 0 0 15px rgba(254, 228, 64, 0.5);
+        }
+
+        .avogadro-hero .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-3);
+            box-shadow: 0 0 10px var(--neon-3);
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ===== НАВІГАЦІЯ ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: var(--neon);
+            border-color: var(--neon);
+            background: rgba(0, 245, 212, 0.08);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+            outline: none;
+        }
+
+        /* ===== ОСНОВНИЙ КОНТЕНТ ===== */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        section:nth-child(1) { animation-delay: 0.1s; }
+        section:nth-child(2) { animation-delay: 0.2s; }
+        section:nth-child(3) { animation-delay: 0.3s; }
+        section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--neon);
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        h2 .accent {
+            color: var(--neon);
+        }
+
+        section > p {
+            color: #c4cbf0;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            max-width: 750px;
+        }
+
+        /* ===== ІСТОРІЯ — TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon), var(--neon-4), var(--neon-2));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.75rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2rem;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--neon);
+            box-shadow: 0 0 12px var(--neon);
+        }
+
+        .timeline-year {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--neon);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item p {
+            color: #c4cbf0;
+            font-size: 0.98rem;
+        }
+
+        /* ===== СТАТИСТИКА ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 245, 212, 0.4);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-value {
+            font-family: 'Courier New', monospace;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--neon);
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* ===== ТРАДИЦІЇ ===== */
+        .traditions {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tradition-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            padding: 1.25rem 1.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tradition-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--neon);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .tradition-item:hover {
+            background: var(--card-hover);
+            border-color: rgba(0, 245, 212, 0.3);
+            transform: translateX(6px);
+        }
+
+        .tradition-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .tradition-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.3));
+        }
+
+        .tradition-body h4 {
+            color: var(--neon);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .tradition-body p {
+            color: #b8c0e0;
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        /* ===== ЖАРТ ===== */
+        .joke {
+            margin-top: 2rem;
+            padding: 1.5rem 1.75rem;
+            background: linear-gradient(135deg, rgba(254, 228, 64, 0.08) 0%, rgba(241, 91, 181, 0.05) 100%);
+            border: 1px solid rgba(254, 228, 64, 0.3);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .joke::before {
+            content: "// ЖАРТ";
+            position: absolute;
+            top: -10px;
+            left: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-3);
+            background: var(--bg);
+            padding: 0 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .joke p {
+            color: #d8ddf0;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .joke p:last-child {
+            margin-bottom: 0;
+        }
+
+        .joke .punchline {
+            color: var(--neon-3);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 1.05rem;
+            text-shadow: 0 0 15px rgba(254, 228, 64, 0.3);
+        }
+
+        /* ===== ВІКТОРИНА ===== */
+        .quiz {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(155, 93, 229, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .quiz-question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .quiz-question::before {
+            content: "?";
+            font-family: 'Courier New', monospace;
+            color: var(--neon-2);
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        .quiz-btn {
+            background: var(--bg-soft);
+            border: 1px solid rgba(155, 93, 229, 0.3);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            font-family: inherit;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-weight: 500;
+        }
+
+        .quiz-btn .marker {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--neon-4);
+            flex-shrink: 0;
+            transition: color 0.25s ease;
+        }
+
+        .quiz-btn:hover:not(:disabled) {
+            border-color: var(--neon-4);
+            background: rgba(155, 93, 229, 0.12);
+            transform: translateX(6px);
+            box-shadow: 0 0 25px rgba(155, 93, 229, 0.2);
+        }
+
+        .quiz-btn:hover:not(:disabled) .marker {
+            color: var(--neon);
+        }
+
+        .quiz-btn:disabled {
+            cursor: default;
+            opacity: 0.85;
+        }
+
+        .quiz-btn.correct {
+            background: rgba(0, 245, 212, 0.12);
+            border-color: var(--neon);
+            color: var(--neon);
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.25);
+        }
+
+        .quiz-btn.correct .marker {
+            color: var(--neon);
+        }
+
+        .quiz-btn.wrong {
+            background: rgba(241, 91, 181, 0.12);
+            border-color: var(--neon-2);
+            color: var(--neon-2);
+            font-weight: 600;
+        }
+
+        .quiz-btn.wrong .marker {
+            color: var(--neon-2);
+        }
+
+        .quiz-feedback {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: none;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .quiz-feedback.success {
+            background: rgba(0, 245, 212, 0.1);
+            border-left: 3px solid var(--neon);
+            color: var(--neon);
+        }
+
+        .quiz-feedback.error {
+            background: rgba(241, 91, 181, 0.1);
+            border-left: 3px solid var(--neon-2);
+            color: var(--neon-2);
+        }
+
+        /* ===== ІДЕЇ / CARDS ===== */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .idea-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.75rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .idea-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            padding: 1px;
+            background: linear-gradient(135deg, transparent, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-6px);
+            background: var(--card-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .idea-card:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--neon), var(--neon-4), var(--neon-2));
+        }
+
+        .idea-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-4);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+
+        .idea-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .idea-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .idea-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== ФУТЕР ===== */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: rgba(10, 14, 39, 0.6);
+        }
+
+        footer .footer-formula {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--neon);
+            text-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer p + p {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 640px) {
+            header {
+                padding: 3.5rem 1rem 3rem;
+            }
+
+            .glow-1, .glow-2 {
+                filter: blur(60px);
+            }
+
+            nav a {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 2rem 1rem 3.5rem;
+            }
+
+            section {
+                margin-bottom: 3rem;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -1.5rem;
+            }
+
+            .tradition-item {
+                padding: 1rem 1.15rem;
+                gap: 1rem;
+            }
+
+            .tradition-icon {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* ===== ДОСТУПНІСТЬ ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--neon);
+            outline-offset: 3px;
+        }
+
+        ::selection {
+            background: var(--neon);
+            color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="header-content">
+            <span class="tag">Mole Day · 23.10</span>
+            <h1>Свято<br>числа Авогадро</h1>
+            <p class="subtitle">Дізнайся, як одна з найбільших констант у хімії перетворилась на найвеселіше свято науки</p>
+            <div class="avogadro-hero">
+                <span class="dot"></span>
+                <span>6.02 × 10²³</span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav aria-label="Навігація">
+        <ul>
+            <li><a href="#history">Історія</a></li>
+            <li><a href="#traditions">Традиції</a></li>
+            <li><a href="#quiz">Вікторина</a></li>
+            <li><a href="#ideas">Ідеї</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ІСТОРІЯ -->
+        <section id="history">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <h2>Як <span class="accent">усе почалося</span></h2>
+            </div>
+
+            <p>День Моля відзначають <strong style="color: var(--neon);">23 жовтня з 6:02 до 18:02</strong> — ці цифри кодують число Авогадро, яке визначає кількість частинок в одному молі речовини.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">6.02</div>
+                    <div class="stat-label">× 10²³</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1991</div>
+                    <div class="stat-label">Рік заснування</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">02:23</div>
+                    <div class="stat-label">Формат часу</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Частинок у молі</div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1980-ТІ</div>
+                    <p>Вчителька <strong style="color: var(--text);">Маргарет Крістоф</strong> публікує статтю в журналі <em>The Science Teacher</em>, де вперше пропонує ідею святкування Дня Моля.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">15.05.1991</div>
+                    <p>Учитель хімії <strong style="color: var(--text);">Моріс Олер</strong> з міста Прері-дю-Ш'єн (Вісконсін, США) засновує Національний фонд Дня Моля.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">СЬОГОДНІ</div>
+                    <p>Свято відзначають у школах, університетах та наукових спільнотах США, Канади, Австралії, Південної Африки та багатьох інших країн світу.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ТРАДИЦІЇ -->
+        <section id="traditions">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2>Як <span class="accent">святкують</span></h2>
+            </div>
+
+            <p>День Моля — це не лише про науку, а й про творчість, гумор та їжу. Ось найпопулярніші традиції:</p>
+
+            <div class="traditions">
+                <div class="tradition-item">
+                    <span class="tradition-icon">🍰</span>
+                    <div class="tradition-body">
+                        <h4>Моль-кулінарія</h4>
+                        <p>Випічка у формі молекул, печиво «моль-асси», торт «Моль» та інші смаколики з хімічним підтекстом.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">👑</span>
+                    <div class="tradition-body">
+                        <h4>Коронація Короля та Королеви</h4>
+                        <p>У деяких університетах обирають почесних «монархів» свята — найактивніших студентів-хіміків.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🪅</span>
+                    <div class="tradition-body">
+                        <h4>Моль-ата</h4>
+                        <p>Традиційна піньята у формі крота — гра слів: <em>mole</em> (моль) + <em>piñata</em> (піньята).</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🎭</span>
+                    <div class="tradition-body">
+                        <h4>Тематичні костюми</h4>
+                        <p>Учні вдягаються в костюми кротів, молекул або окремих хімічних елементів з таблиці Менделєєва.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🏆</span>
+                    <div class="tradition-body">
+                        <h4>Конкурси проєктів</h4>
+                        <p>Створення постерів, віршів, коміксів, пісень та відео про моль і хімію — від учнів до професорів.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="joke">
+                <p>— Де Авогадро зупинявся у відпустці?</p>
+                <p class="punchline">— У мотель-лі! 🏨</p>
+            </div>
+        </section>
+
+        <!-- ВІКТОРИНА -->
+        <section id="quiz">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2>Перевір <span class="accent">себе</span></h2>
+            </div>
+
+            <div class="quiz">
+                <div class="quiz-question">Що символізує час святкування Дня Моля (6:02)?</div>
+                <div class="quiz-options" role="group" aria-label="Варіанти відповіді">
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
+                        <span class="marker">A</span>
+                        Початок робочого дня хіміка
+                    </button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, true)" type="button">
+                        <span class="marker">B</span>
+                        Число Авогадро (6.02 × 10²³)
+                    </button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
+                        <span class="marker">C</span>
+                        Кількість елементів у таблиці Менделєєва
+                    </button>
+                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
+                        <span class="marker">D</span>
+                        Рік заснування свята
+                    </button>
+                </div>
+                <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <!-- ІДЕЇ -->
+        <section id="ideas">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <h2>Ідеї для <span class="accent">популяризації</span></h2>
+            </div>
+
+            <p>Незвичайні способи зацікавити хімією — від кросвордів до муралів.</p>
+
+            <div class="ideas-grid">
+                <div class="idea-card">
+                    <div class="idea-num">/ 01</div>
+                    <span class="idea-icon">🧩</span>
+                    <h3>Хімічний кросворд</h3>
+                    <p>Італійські університети проводять конкурс кросвордів, де слова складаються виключно з хімічних символів елементів.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 02</div>
+                    <span class="idea-icon">🎬</span>
+                    <h3>Хімічне кіно</h3>
+                    <p>Створення освітніх відео, де учні грають ролі та пояснюють концепцію моля в гумористичній формі.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 03</div>
+                    <span class="idea-icon">🏃</span>
+                    <h3>Квест-кімната</h3>
+                    <p>Escape room, де розв'язання хімічних загадок є ключем до виходу з кімнати.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 04</div>
+                    <span class="idea-icon">🍪</span>
+                    <h3>Хімічна кулінарія</h3>
+                    <p>Приготування страв, де інгредієнти вимірюються в молях, або створення їжі, що візуалізує реакції.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 05</div>
+                    <span class="idea-icon">🎨</span>
+                    <h3>Мурал «Хімія навколо»</h3>
+                    <p>Стінний розпис, який показує, як хімія присутня в повсякденному житті.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 06</div>
+                    <span class="idea-icon">📱</span>
+                    <h3>Соціальні мережі</h3>
+                    <p>Кампанії з інфографікою, відео та цікавими фактами про хімію для широкої аудиторії.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-formula">6.02 × 10²³</div>
+        <p>🧪 День Моля — свято, яке доводить: хімія може бути веселою</p>
+        <p>Зроблено з ♥ та періодичною таблицею</p>
+    </footer>
+
+    <script>
+        function checkAnswer(button, isCorrect) {
+            const optionsContainer = button.parentElement;
+            const buttons = optionsContainer.querySelectorAll('.quiz-btn');
+            const feedback = document.getElementById('quizFeedback');
+
+            buttons.forEach(function(btn) {
+                btn.disabled = true;
+            });
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                feedback.textContent = '✅ Правильно! Час 6:02 кодує число Авогадро — 6.02 × 10²³ частинок у молі.';
+                feedback.className = 'quiz-feedback show success';
+            } else {
+                button.classList.add('wrong');
+                buttons.forEach(function(btn) {
+                    if (btn.textContent.indexOf('Число Авогадро') !== -1) {
+                        btn.classList.add('correct');
+                    }
+                });
+                feedback.textContent = '❌ Не зовсім. Правильна відповідь — B, виділена зеленим.';
+                feedback.className = 'quiz-feedback show error';
+            }
+        }
+    </script>
+
+</body>
+</html>
