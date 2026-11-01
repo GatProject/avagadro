@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>День Моля · 6.02×10²³</title>
+    <meta name="description" content="День Моля у світі: історія свята, традиції, популяризація хімії та авторські інтерактивні завдання з теми «Моль. Число Авогадро». Номінація «Авторські цікаві завдання з хімії».">
+    <title>День Моля · Авторські завдання з хімії</title>
     <style>
         * {
             margin: 0;
@@ -20,6 +21,7 @@
             --neon-2: #f15bb5;
             --neon-3: #fee440;
             --neon-4: #9b5de5;
+            --neon-5: #00bbf9;
             --text: #e8ecff;
             --text-dim: #8b93b8;
             --border: rgba(0, 245, 212, 0.15);
@@ -39,7 +41,6 @@
             position: relative;
         }
 
-        /* Анімований фон з частинками */
         body::before {
             content: "";
             position: fixed;
@@ -61,7 +62,7 @@
         /* ===== ШАПКА ===== */
         header {
             position: relative;
-            padding: 5rem 1.5rem 4rem;
+            padding: 4rem 1.5rem 3.5rem;
             text-align: center;
             overflow: hidden;
             z-index: 1;
@@ -110,26 +111,27 @@
             margin: 0 auto;
         }
 
-        .tag {
-            display: inline-block;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
+        .nomination-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--neon);
-            padding: 0.4rem 1rem;
-            border: 1px solid var(--neon);
+            color: var(--neon-3);
+            padding: 0.5rem 1.15rem;
+            border: 1px solid rgba(254, 228, 64, 0.4);
             border-radius: 50px;
-            margin-bottom: 1.5rem;
-            background: rgba(0, 245, 212, 0.05);
-            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+            margin-bottom: 1.25rem;
+            background: rgba(254, 228, 64, 0.08);
+            box-shadow: 0 0 20px rgba(254, 228, 64, 0.15);
         }
 
         h1 {
-            font-size: clamp(2.2rem, 7vw, 4rem);
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 900;
-            line-height: 1.05;
+            line-height: 1.08;
             letter-spacing: -0.03em;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--neon) 0%, var(--neon-3) 50%, var(--neon-2) 100%);
@@ -140,24 +142,21 @@
         }
 
         .subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-size: clamp(1rem, 2.5vw, 1.15rem);
             color: var(--text-dim);
-            font-weight: 400;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 640px;
+            margin: 0 auto 1.75rem;
         }
 
-        /* Число Авогадро в шапці */
         .avogadro-hero {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
             font-family: 'Courier New', monospace;
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
             font-weight: 700;
             color: var(--neon-3);
-            padding: 0.75rem 1.5rem;
-            margin-top: 2rem;
+            padding: 0.65rem 1.4rem;
             background: rgba(254, 228, 64, 0.08);
             border: 1px solid rgba(254, 228, 64, 0.3);
             border-radius: 12px;
@@ -197,7 +196,7 @@
             gap: 0.5rem;
             list-style: none;
             flex-wrap: wrap;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -206,8 +205,8 @@
             color: var(--text-dim);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
-            padding: 0.6rem 1.2rem;
+            font-size: 0.88rem;
+            padding: 0.55rem 1.1rem;
             border-radius: 10px;
             transition: all 0.25s ease;
             border: 1px solid transparent;
@@ -238,9 +237,11 @@
         }
 
         section:nth-child(1) { animation-delay: 0.1s; }
-        section:nth-child(2) { animation-delay: 0.2s; }
-        section:nth-child(3) { animation-delay: 0.3s; }
-        section:nth-child(4) { animation-delay: 0.4s; }
+        section:nth-child(2) { animation-delay: 0.15s; }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.25s; }
+        section:nth-child(5) { animation-delay: 0.3s; }
+        section:nth-child(6) { animation-delay: 0.35s; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -251,7 +252,7 @@
             display: flex;
             align-items: baseline;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.75rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid var(--border);
         }
@@ -266,7 +267,7 @@
         }
 
         h2 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.4rem, 4vw, 1.9rem);
             font-weight: 800;
             letter-spacing: -0.02em;
             color: var(--text);
@@ -278,9 +279,9 @@
 
         section > p {
             color: #c4cbf0;
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             margin-bottom: 1rem;
-            max-width: 750px;
+            max-width: 780px;
         }
 
         /* ===== ІСТОРІЯ — TIMELINE ===== */
@@ -338,7 +339,7 @@
         /* ===== СТАТИСТИКА ===== */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
             margin: 2rem 0;
         }
@@ -347,7 +348,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.5rem 1.25rem;
+            padding: 1.4rem 1.15rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -377,16 +378,16 @@
 
         .stat-value {
             font-family: 'Courier New', monospace;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--neon);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
             line-height: 1.2;
             text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
         }
 
         .stat-label {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -396,15 +397,15 @@
         /* ===== ТРАДИЦІЇ ===== */
         .traditions {
             display: grid;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 0.85rem;
+            margin-top: 1.25rem;
         }
 
         .tradition-item {
             display: flex;
-            gap: 1.25rem;
+            gap: 1.15rem;
             align-items: flex-start;
-            padding: 1.25rem 1.5rem;
+            padding: 1.15rem 1.35rem;
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 16px;
@@ -437,7 +438,7 @@
         }
 
         .tradition-icon {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
             line-height: 1;
             filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.3));
@@ -445,21 +446,21 @@
 
         .tradition-body h4 {
             color: var(--neon);
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.25rem;
         }
 
         .tradition-body p {
             color: #b8c0e0;
-            font-size: 0.92rem;
+            font-size: 0.9rem;
             margin: 0;
         }
 
         /* ===== ЖАРТ ===== */
         .joke {
-            margin-top: 2rem;
-            padding: 1.5rem 1.75rem;
+            margin-top: 1.75rem;
+            padding: 1.4rem 1.65rem;
             background: linear-gradient(135deg, rgba(254, 228, 64, 0.08) 0%, rgba(241, 91, 181, 0.05) 100%);
             border: 1px solid rgba(254, 228, 64, 0.3);
             border-radius: 16px;
@@ -472,7 +473,7 @@
             top: -10px;
             left: 1.5rem;
             font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--neon-3);
             background: var(--bg);
@@ -483,7 +484,8 @@
         .joke p {
             color: #d8ddf0;
             font-style: italic;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
         }
 
         .joke p:last-child {
@@ -494,8 +496,249 @@
             color: var(--neon-3);
             font-weight: 700;
             font-style: normal;
-            font-size: 1.05rem;
+            font-size: 1rem;
             text-shadow: 0 0 15px rgba(254, 228, 64, 0.3);
+        }
+
+        /* ===== ЗАВДАННЯ — TASKS ===== */
+        .tasks-intro {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.25rem 0 1.75rem;
+        }
+
+        .task-badge {
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.35rem 0.85rem;
+            border-radius: 50px;
+            background: rgba(155, 93, 229, 0.12);
+            border: 1px solid rgba(155, 93, 229, 0.35);
+            color: #c4b2f0;
+        }
+
+        .tasks-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .task-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(1.25rem, 3.5vw, 2rem);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .task-card:hover {
+            border-color: rgba(0, 245, 212, 0.35);
+        }
+
+        .task-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon), var(--neon-4), var(--neon-2));
+        }
+
+        .task-header {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .task-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--bg);
+            background: var(--neon);
+            padding: 0.25rem 0.7rem;
+            border-radius: 6px;
+            letter-spacing: 0.05em;
+        }
+
+        .task-type {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            border: 1px solid;
+        }
+
+        .task-type.quest { color: var(--neon-4); border-color: rgba(155, 93, 229, 0.5); background: rgba(155, 93, 229, 0.1); }
+        .task-type.research { color: var(--neon); border-color: rgba(0, 245, 212, 0.5); background: rgba(0, 245, 212, 0.1); }
+        .task-type.puzzle { color: var(--neon-2); border-color: rgba(241, 91, 181, 0.5); background: rgba(241, 91, 181, 0.1); }
+        .task-type.case { color: var(--neon-3); border-color: rgba(254, 228, 64, 0.5); background: rgba(254, 228, 64, 0.1); }
+        .task-type.creative { color: var(--neon-5); border-color: rgba(0, 187, 249, 0.5); background: rgba(0, 187, 249, 0.1); }
+        .task-type.logic { color: #ff9f43; border-color: rgba(255, 159, 67, 0.5); background: rgba(255, 159, 67, 0.1); }
+
+        .task-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            flex-basis: 100%;
+            margin-top: 0.25rem;
+        }
+
+        .task-content {
+            color: #c4cbf0;
+            font-size: 0.95rem;
+        }
+
+        .task-content p {
+            margin-bottom: 0.75rem;
+        }
+
+        .task-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .task-content strong {
+            color: var(--neon);
+            font-weight: 700;
+        }
+
+        .task-content em {
+            color: var(--neon-3);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Блок з підказкою / рішенням */
+        .task-hint {
+            margin-top: 1rem;
+            padding: 0.85rem 1.1rem;
+            background: rgba(0, 245, 212, 0.06);
+            border-left: 3px solid var(--neon);
+            border-radius: 8px;
+            font-size: 0.88rem;
+            color: #b8e8de;
+        }
+
+        .task-hint summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--neon);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            user-select: none;
+        }
+
+        .task-hint summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .task-hint summary::before {
+            content: "▸";
+            display: inline-block;
+            transition: transform 0.25s ease;
+            font-size: 0.9em;
+        }
+
+        .task-hint[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .task-hint[open] summary {
+            margin-bottom: 0.65rem;
+        }
+
+        /* Сітка для міні-завдань */
+        .mini-tasks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .mini-task {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.35rem 1.25rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mini-task:hover {
+            border-color: rgba(155, 93, 229, 0.45);
+            transform: translateY(-4px);
+            background: var(--card-hover);
+        }
+
+        .mini-task .mini-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.6rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .mini-task h4 {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .mini-task p {
+            font-size: 0.87rem;
+            color: var(--text-dim);
+            margin: 0;
+        }
+
+        .mini-task .answer-toggle {
+            margin-top: 0.75rem;
+            font-size: 0.82rem;
+        }
+
+        .mini-task .answer-toggle summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--neon-2);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            user-select: none;
+        }
+
+        .mini-task .answer-toggle summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .mini-task .answer-toggle summary::before {
+            content: "?";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 1px solid var(--neon-2);
+            font-size: 0.7rem;
+        }
+
+        .mini-task .answer-toggle[open] summary {
+            margin-bottom: 0.5rem;
+        }
+
+        .mini-task .answer-toggle p {
+            color: var(--neon);
+            font-weight: 600;
+            font-size: 0.85rem;
         }
 
         /* ===== ВІКТОРИНА ===== */
@@ -520,10 +763,10 @@
         }
 
         .quiz-question {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.35rem;
             position: relative;
             display: flex;
             gap: 0.75rem;
@@ -540,16 +783,16 @@
 
         .quiz-options {
             display: grid;
-            gap: 0.75rem;
+            gap: 0.7rem;
             position: relative;
         }
 
         .quiz-btn {
             background: var(--bg-soft);
             border: 1px solid rgba(155, 93, 229, 0.3);
-            padding: 1rem 1.25rem;
+            padding: 0.9rem 1.15rem;
             border-radius: 12px;
-            font-size: 0.98rem;
+            font-size: 0.95rem;
             font-family: inherit;
             color: var(--text);
             cursor: pointer;
@@ -635,11 +878,11 @@
             color: var(--neon-2);
         }
 
-        /* ===== ІДЕЇ / CARDS ===== */
+        /* ===== ІДЕЇ ===== */
         .ideas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.15rem;
             margin-top: 1.5rem;
         }
 
@@ -647,25 +890,10 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: 18px;
-            padding: 1.75rem 1.5rem;
+            padding: 1.6rem 1.4rem;
             position: relative;
             overflow: hidden;
             transition: all 0.35s ease;
-        }
-
-        .idea-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 18px;
-            padding: 1px;
-            background: linear-gradient(135deg, transparent, transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            opacity: 0;
-            transition: opacity 0.35s ease;
-            pointer-events: none;
         }
 
         .idea-card:hover {
@@ -674,46 +902,123 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .idea-card:hover::after {
-            opacity: 1;
-            background: linear-gradient(135deg, var(--neon), var(--neon-4), var(--neon-2));
-        }
-
         .idea-num {
             font-family: 'Courier New', monospace;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 700;
             color: var(--neon-4);
             letter-spacing: 0.15em;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.7rem;
         }
 
         .idea-icon {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.9rem;
+            margin-bottom: 0.7rem;
             display: block;
             line-height: 1;
         }
 
         .idea-card h3 {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.45rem;
         }
 
         .idea-card p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-dim);
             margin: 0;
             line-height: 1.6;
+        }
+
+        /* ===== ЗАЯВКА / CTA ===== */
+        .cta-box {
+            background: linear-gradient(135deg, rgba(0, 245, 212, 0.1) 0%, rgba(155, 93, 229, 0.1) 100%);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.2) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-box h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--neon);
+            margin-bottom: 0.85rem;
+            position: relative;
+        }
+
+        .cta-box p {
+            color: #c4cbf0;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .cta-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-box strong {
+            color: var(--neon-3);
+            font-weight: 700;
+        }
+
+        .cta-list {
+            list-style: none;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .cta-list li {
+            padding: 0.5rem 0 0.5rem 1.75rem;
+            position: relative;
+            color: #c4cbf0;
+            font-size: 0.92rem;
+        }
+
+        .cta-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--neon);
+            font-weight: 700;
+        }
+
+        .deadline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            padding: 0.7rem 1.35rem;
+            background: rgba(241, 91, 181, 0.12);
+            border: 1px solid rgba(241, 91, 181, 0.4);
+            border-radius: 12px;
+            font-weight: 700;
+            color: var(--neon-2);
+            font-size: 0.95rem;
+            position: relative;
         }
 
         /* ===== ФУТЕР ===== */
         footer {
             position: relative;
             z-index: 1;
-            padding: 3rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             border-top: 1px solid var(--border);
             background: rgba(10, 14, 39, 0.6);
@@ -721,37 +1026,40 @@
 
         footer .footer-formula {
             font-family: 'Courier New', monospace;
-            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
             font-weight: 800;
             color: var(--neon);
             text-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
         }
 
         footer p {
             color: var(--text-dim);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
-        footer p + p {
-            margin-top: 0.5rem;
-            font-size: 0.8rem;
+        footer p:not(:first-child) {
+            margin-top: 0.4rem;
+            font-size: 0.78rem;
             opacity: 0.7;
         }
 
         /* ===== АДАПТИВ ===== */
         @media (max-width: 640px) {
             header {
-                padding: 3.5rem 1rem 3rem;
+                padding: 3rem 1rem 2.5rem;
+            }
+                        .glow-1, .glow-2 {
+                opacity: 0.3;
             }
 
-            .glow-1, .glow-2 {
-                filter: blur(60px);
+            nav ul {
+                gap: 0.3rem;
             }
 
             nav a {
-                padding: 0.5rem 0.9rem;
-                font-size: 0.85rem;
+                font-size: 0.8rem;
+                padding: 0.45rem 0.8rem;
             }
 
             main {
@@ -759,7 +1067,11 @@
             }
 
             section {
-                margin-bottom: 3rem;
+                margin-bottom: 2.75rem;
+            }
+
+            .section-header {
+                gap: 0.6rem;
             }
 
             .timeline {
@@ -768,15 +1080,54 @@
 
             .timeline-item::before {
                 left: -1.5rem;
+                width: 12px;
+                height: 12px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+
+            .stat-card {
+                padding: 1.1rem 0.85rem;
+            }
+
+            .stat-value {
+                font-size: 1.2rem;
             }
 
             .tradition-item {
-                padding: 1rem 1.15rem;
-                gap: 1rem;
+                padding: 1rem 1.1rem;
+                gap: 0.9rem;
             }
 
-            .tradition-icon {
-                font-size: 1.35rem;
+            .task-header {
+                gap: 0.5rem;
+            }
+
+            .quiz-btn {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .mini-tasks {
+                grid-template-columns: 1fr;
+            }
+
+            .ideas-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .avogadro-hero {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
             }
         }
 
@@ -786,45 +1137,89 @@
             *::before,
             *::after {
                 animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
             }
-            html { scroll-behavior: auto; }
+
+            section {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            body::before {
+                animation: none;
+            }
         }
 
-        a:focus-visible,
-        button:focus-visible {
+        :focus-visible {
             outline: 2px solid var(--neon);
             outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         ::selection {
-            background: var(--neon);
-            color: var(--bg);
+            background: rgba(0, 245, 212, 0.3);
+            color: #fff;
+        }
+
+        /* Скролбар */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 245, 212, 0.3);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 245, 212, 0.5);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
+        <div class="glow glow-1" aria-hidden="true"></div>
+        <div class="glow glow-2" aria-hidden="true"></div>
+
         <div class="header-content">
-            <span class="tag">Mole Day · 23.10</span>
-            <h1>Свято<br>числа Авогадро</h1>
-            <p class="subtitle">Дізнайся, як одна з найбільших констант у хімії перетворилась на найвеселіше свято науки</p>
-            <div class="avogadro-hero">
-                <span class="dot"></span>
-                <span>6.02 × 10²³</span>
-                <span class="dot"></span>
+            <span class="nomination-tag">★ Номінація · Авторські цікаві завдання з хімії</span>
+            <h1>День Моля у світі</h1>
+            <p class="subtitle">
+                Історія свята, традиції, популяризація хімії та авторські інтерактивні
+                завдання з теми «Моль. Число Авогадро».
+            </p>
+            <div class="avogadro-hero" role="note" aria-label="Стала Авогадро">
+                <span class="dot" aria-hidden="true"></span>
+                <span>N<sub>A</sub> = 6,022 × 10²³ моль⁻¹</span>
             </div>
         </div>
     </header>
 
-    <nav aria-label="Навігація">
+    <nav aria-label="Основна навігація">
         <ul>
             <li><a href="#history">Історія</a></li>
+            <li><a href="#stats">Статистика</a></li>
             <li><a href="#traditions">Традиції</a></li>
+            <li><a href="#tasks">Завдання</a></li>
             <li><a href="#quiz">Вікторина</a></li>
             <li><a href="#ideas">Ідеї</a></li>
         </ul>
@@ -832,179 +1227,405 @@
 
     <main>
 
-        <!-- ІСТОРІЯ -->
+        <!-- ===== ІСТОРІЯ ===== -->
         <section id="history">
             <div class="section-header">
                 <span class="section-num">01</span>
-                <h2>Як <span class="accent">усе почалося</span></h2>
+                <h2>Історія свята <span class="accent">Моля</span></h2>
             </div>
-
-            <p>День Моля відзначають <strong style="color: var(--neon);">23 жовтня з 6:02 до 18:02</strong> — ці цифри кодують число Авогадро, яке визначає кількість частинок в одному молі речовини.</p>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-value">6.02</div>
-                    <div class="stat-label">× 10²³</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">1991</div>
-                    <div class="stat-label">Рік заснування</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">02:23</div>
-                    <div class="stat-label">Формат часу</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">∞</div>
-                    <div class="stat-label">Частинок у молі</div>
-                </div>
-            </div>
+            <p>
+                День Моля — неофіційне свято хімії, яке відзначають <strong>23 жовтня</strong>
+                (між 6:02 ранку та 6:02 вечора). Дату обрано не випадково: вона відсилає до
+                числа Авогадро — <em>6,02 × 10²³</em>.
+            </p>
 
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-year">1980-ТІ</div>
-                    <p>Вчителька <strong style="color: var(--text);">Маргарет Крістоф</strong> публікує статтю в журналі <em>The Science Teacher</em>, де вперше пропонує ідею святкування Дня Моля.</p>
+                    <div class="timeline-year">1980-ті</div>
+                    <p>
+                        Ідея неофіційного свята хімії виникає серед науковців та вчителів
+                        як спосіб популяризувати «незручну» для учнів тему — моль.
+                    </p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">15.05.1991</div>
-                    <p>Учитель хімії <strong style="color: var(--text);">Моріс Олер</strong> з міста Прері-дю-Ш'єн (Вісконсін, США) засновує Національний фонд Дня Моля.</p>
+                    <div class="timeline-year">23.10 · 6:02</div>
+                    <p>
+                        Дата й час символізують сталу Авогадро. Святкування починається
+                        зранку та триває до вечора — «двічі по 6:02».
+                    </p>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-year">СЬОГОДНІ</div>
-                    <p>Свято відзначають у школах, університетах та наукових спільнотах США, Канади, Австралії, Південної Африки та багатьох інших країн світу.</p>
+                    <div class="timeline-year">2000-ні</div>
+                    <p>
+                        День Моля поширюється школами та університетами світу: хімічні
+                        квести, досліди, тематичні стіннівки, «молеграми».
+                    </p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">Сьогодні</div>
+                    <p>
+                        Свято об'єднує учнів, студентів і вчителів навколо хімії —
+                        від конкурсів задач до флешмобів у соцмережах.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- ТРАДИЦІЇ -->
-        <section id="traditions">
+        <!-- ===== СТАТИСТИКА ===== -->
+        <section id="stats">
             <div class="section-header">
                 <span class="section-num">02</span>
-                <h2>Як <span class="accent">святкують</span></h2>
+                <h2>Хімія <span class="accent">в цифрах</span></h2>
             </div>
+            <p>
+                Кілька величин, які варто пам'ятати, коли говоримо про моль і
+                число Авогадро.
+            </p>
 
-            <p>День Моля — це не лише про науку, а й про творчість, гумор та їжу. Ось найпопулярніші традиції:</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">6,022 × 10²³</div>
+                    <div class="stat-label">Частинок у 1 молі</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">23.10 · 6:02</div>
+                    <div class="stat-label">Дата й час свята</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12 г</div>
+                    <div class="stat-label">Маса 1 моль C-12</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">22,4 л</div>
+                    <div class="stat-label">Об'єм 1 моль газу (н.у.)</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ТРАДИЦІЇ ===== -->
+        <section id="traditions">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2>Традиції <span class="accent">святкування</span></h2>
+            </div>
+            <p>
+                Як зазвичай відзначають День Моля у школах та університетах.
+            </p>
 
             <div class="traditions">
                 <div class="tradition-item">
-                    <span class="tradition-icon">🍰</span>
+                    <span class="tradition-icon" aria-hidden="true">🧪</span>
                     <div class="tradition-body">
-                        <h4>Моль-кулінарія</h4>
-                        <p>Випічка у формі молекул, печиво «моль-асси», торт «Моль» та інші смаколики з хімічним підтекстом.</p>
+                        <h4>Хімічні досліди</h4>
+                        <p>Демонстрації, мінілабораторії та «безпечні вибухи» на уроках.</p>
                     </div>
                 </div>
                 <div class="tradition-item">
-                    <span class="tradition-icon">👑</span>
+                    <span class="tradition-icon" aria-hidden="true">🧩</span>
                     <div class="tradition-body">
-                        <h4>Коронація Короля та Королеви</h4>
-                        <p>У деяких університетах обирають почесних «монархів» свята — найактивніших студентів-хіміків.</p>
+                        <h4>Квести та вікторини</h4>
+                        <p>Командні змагання на знання понять «моль», «молярна маса», «Авогадро».</p>
                     </div>
                 </div>
                 <div class="tradition-item">
-                    <span class="tradition-icon">🪅</span>
+                    <span class="tradition-icon" aria-hidden="true">🥧</span>
                     <div class="tradition-body">
-                        <h4>Моль-ата</h4>
-                        <p>Традиційна піньята у формі крота — гра слів: <em>mole</em> (моль) + <em>piñata</em> (піньята).</p>
+                        <h4>«Молеграми» та частування</h4>
+                        <p>Тематичні листівки, солодощі та напої, пов'язані з числом 6,02.</p>
                     </div>
                 </div>
                 <div class="tradition-item">
-                    <span class="tradition-icon">🎭</span>
+                    <span class="tradition-icon" aria-hidden="true">📢</span>
                     <div class="tradition-body">
-                        <h4>Тематичні костюми</h4>
-                        <p>Учні вдягаються в костюми кротів, молекул або окремих хімічних елементів з таблиці Менделєєва.</p>
-                    </div>
-                </div>
-                <div class="tradition-item">
-                    <span class="tradition-icon">🏆</span>
-                    <div class="tradition-body">
-                        <h4>Конкурси проєктів</h4>
-                        <p>Створення постерів, віршів, коміксів, пісень та відео про моль і хімію — від учнів до професорів.</p>
+                        <h4>Популяризація науки</h4>
+                        <p>Стіннівки, постери, відео та флешмоби про хімію в повсякденні.</p>
                     </div>
                 </div>
             </div>
 
             <div class="joke">
-                <p>— Де Авогадро зупинявся у відпустці?</p>
-                <p class="punchline">— У мотель-лі! 🏨</p>
+                <p>— Скільки молей у вашому класі?</p>
+                <p class="punchline">— Один, але дуже активний: 6,02 × 10²³ частинок енергії!</p>
             </div>
         </section>
 
-        <!-- ВІКТОРИНА -->
-        <section id="quiz">
+        <!-- ===== ЗАВДАННЯ ===== -->
+        <section id="tasks">
             <div class="section-header">
-                <span class="section-num">03</span>
-                <h2>Перевір <span class="accent">себе</span></h2>
+                <span class="section-num">04</span>
+                <h2>Авторські <span class="accent">завдання</span></h2>
+            </div>
+            <p>
+                Інтерактивні завдання різних типів: від логічних задач до творчих
+                мініпроєктів. Розкривайте підказки лише після власних спроб!
+            </p>
+
+            <div class="tasks-intro">
+                <span class="task-badge">Квест</span>
+                <span class="task-badge">Дослідження</span>
+                <span class="task-badge">Головоломка</span>
+                <span class="task-badge">Кейс</span>
+                <span class="task-badge">Творчість</span>
+                <span class="task-badge">Логіка</span>
             </div>
 
-            <div class="quiz">
-                <div class="quiz-question">Що символізує час святкування Дня Моля (6:02)?</div>
-                <div class="quiz-options" role="group" aria-label="Варіанти відповіді">
-                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
-                        <span class="marker">A</span>
-                        Початок робочого дня хіміка
+            <div class="tasks-grid">
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 01</span>
+                        <span class="task-type research">Дослідження</span>
+                        <h3>Скільки молекул у склянці води?</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            Уявіть склянку води об'ємом <strong>180 мл</strong>.
+                            Густина води — <strong>1 г/мл</strong>, молярна маса —
+                            <strong>18 г/моль</strong>. Обчисліть кількість речовини та
+                            кількість молекул води у склянці.
+                        </p>
+                        <details class="task-hint">
+                            <summary>Підказка та відповідь</summary>
+                            <p>
+                                m = 180 г → n = 180 / 18 = <strong>10 моль</strong>.
+                                N = n · N<sub>A</sub> = 10 · 6,022 × 10²³ =
+                                <strong>6,022 × 10²⁴ молекул</strong>.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 02</span>
+                        <span class="task-type case">Кейс</span>
+                        <h3>Банка кухонної солі</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            На кухні стоїть банка з <strong>58,5 г</strong> кухонної солі
+                            NaCl. Скільки молекул (формульних одиниць) NaCl у банці?
+                            Молярна маса NaCl — <strong>58,5 г/моль</strong>.
+                        </p>
+                        <details class="task-hint">
+                            <summary>Підказка та відповідь</summary>
+                            <p>
+                                n = 58,5 / 58,5 = <strong>1 моль</strong>.
+                                N = 1 · 6,022 × 10²³ = <strong>6,022 × 10²³</strong>
+                                формульних одиниць.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 03</span>
+                        <span class="task-type puzzle">Головоломка</span>
+                        <h3>Доза глюкози</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            Лікар призначив пацієнту <strong>0,5 моль</strong> глюкози
+                            C₆H₁₂O₆ на добу. Яка маса глюкози відповідає цій дозі?
+                            Молярна маса глюкози — <strong>180 г/моль</strong>.
+                        </p>
+                        <details class="task-hint">
+                            <summary>Підказка та відповідь</summary>
+                            <p>
+                                m = n · M = 0,5 · 180 = <strong>90 г</strong> глюкози на добу.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 04</span>
+                        <span class="task-type logic">Логіка</span>
+                        <h3>Моль повітря</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            За нормальних умов 1 моль будь-якого газу займає
+                            <strong>22,4 л</strong>. Який об'єм займає <strong>0,25 моль</strong>
+                            кисню O₂ за н.у.? Скільки молекул O₂ міститься в цьому об'ємі?
+                        </p>
+                        <details class="task-hint">
+                            <summary>Підказка та відповідь</summary>
+                            <p>
+                                V = 0,25 · 22,4 = <strong>5,6 л</strong>.
+                                N = 0,25 · 6,022 × 10²³ =
+                                <strong>1,5055 × 10²³ молекул</strong>.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 05</span>
+                        <span class="task-type quest">Квест</span>
+                        <h3>Молеграма для друга</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            Складіть коротке привітання з Днем Моля для однокласника,
+                            використавши щонайменше <em>три хімічні терміни</em>
+                            (моль, Авогадро, молярна маса, кількість речовини тощо)
+                            та число <strong>6,02 × 10²³</strong>.
+                        </p>
+                        <details class="task-hint">
+                            <summary>Критерії оцінювання</summary>
+                            <p>
+                                До 3 балів: коректність термінів · до 2 балів:
+                                використання числа Авогадро · до 2 балів: оригінальність.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="task-card">
+                    <div class="task-header">
+                        <span class="task-num">Завдання 06</span>
+                        <span class="task-type creative">Творчість</span>
+                        <h3>Плакат «Моль у побуті»</h3>
+                    </div>
+                    <div class="task-content">
+                        <p>
+                            Створіть мініплакат (або слайд), який показує, де в
+                            повсякденному житті «ховається» моль: ліки, їжа, побутова
+                            хімія, дихання. Додайте одне обчислення з одиницями вимірювання.
+                        </p>
+                        <details class="task-hint">
+                            <summary>Ідея</summary>
+                            <p>
+                                Наприклад: у 1 чайній ложці цукру (~5 г, M = 342 г/моль)
+                                міститься близько 0,0146 моль сахарози.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mini-tasks">
+                <div class="mini-task">
+                    <span class="mini-icon" aria-hidden="true">🔢</span>
+                    <h4>Міні-задача: маса 2 моль води</h4>
+                    <p>Обчисліть масу 2 моль H₂O (M = 18 г/моль).</p>
+                    <details class="answer-toggle">
+                        <summary>Відповідь</summary>
+                        <p>m = 2 · 18 = 36 г.</p>
+                    </details>
+                </div>
+                <div class="mini-task">
+                    <span class="mini-icon" aria-hidden="true">⚛️</span>
+                    <h4>Міні-задача: кількість речовини</h4>
+                    <p>Скільки молей у 6 г вуглецю C (M = 12 г/моль)?</p>
+                    <details class="answer-toggle">
+                        <summary>Відповідь</summary>
+                        <p>n = 6 / 12 = 0,5 моль.</p>
+                    </details>
+                </div>
+                <div class="mini-task">
+                    <span class="mini-icon" aria-hidden="true">💨</span>
+                    <h4>Міні-задача: об'єм газу</h4>
+                    <p>Який об'єм за н.у. займає 2 моль азоту N₂?</p>
+                    <details class="answer-toggle">
+                        <summary>Відповідь</summary>
+                        <p>V = 2 · 22,4 = 44,8 л.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ВІКТОРИНА ===== -->
+        <section id="quiz">
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <h2>Швидка <span class="accent">вікторина</span></h2>
+            </div>
+            <p>
+                Перевірте себе: одна відповідь — одна спроба. Обирайте свідомо!
+            </p>
+
+            <div class="quiz" id="quizBox">
+                <div class="quiz-question" id="quizQuestion">
+                    Чому дорівнює стала Авогадро?
+                </div>
+                <div class="quiz-options" id="quizOptions">
+                    <button class="quiz-btn" data-correct="false">
+                        <span class="marker">A</span> 3,14 × 10²³ моль⁻¹
                     </button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, true)" type="button">
-                        <span class="marker">B</span>
-                        Число Авогадро (6.02 × 10²³)
+                    <button class="quiz-btn" data-correct="true">
+                        <span class="marker">B</span> 6,022 × 10²³ моль⁻¹
                     </button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
-                        <span class="marker">C</span>
-                        Кількість елементів у таблиці Менделєєва
+                    <button class="quiz-btn" data-correct="false">
+                        <span class="marker">C</span> 9,81 × 10²³ моль⁻¹
                     </button>
-                    <button class="quiz-btn" onclick="checkAnswer(this, false)" type="button">
-                        <span class="marker">D</span>
-                        Рік заснування свята
+                    <button class="quiz-btn" data-correct="false">
+                        <span class="marker">D</span> 1,602 × 10⁻¹⁹ моль⁻¹
                     </button>
                 </div>
                 <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
             </div>
         </section>
 
-        <!-- ІДЕЇ -->
+        <!-- ===== ІДЕЇ ===== -->
         <section id="ideas">
             <div class="section-header">
-                <span class="section-num">04</span>
-                <h2>Ідеї для <span class="accent">популяризації</span></h2>
+                <span class="section-num">06</span>
+                <h2>Ідеї для <span class="accent">святкування</span></h2>
             </div>
-
-            <p>Незвичайні способи зацікавити хімією — від кросвордів до муралів.</p>
+            <p>
+                Як зробити День Моля незабутнім у класі, школі чи гуртку.
+            </p>
 
             <div class="ideas-grid">
                 <div class="idea-card">
-                    <div class="idea-num">/ 01</div>
-                    <span class="idea-icon">🧩</span>
-                    <h3>Хімічний кросворд</h3>
-                    <p>Італійські університети проводять конкурс кросвордів, де слова складаються виключно з хімічних символів елементів.</p>
+                    <div class="idea-num">IDEA 01</div>
+                    <span class="idea-icon" aria-hidden="true">🎬</span>
+                    <h3>Відеочелендж «Моль за 60 секунд»</h3>
+                    <p>Короткі відео з поясненням поняття «моль» простими словами.</p>
                 </div>
                 <div class="idea-card">
-                    <div class="idea-num">/ 02</div>
-                    <span class="idea-icon">🎬</span>
-                    <h3>Хімічне кіно</h3>
-                    <p>Створення освітніх відео, де учні грають ролі та пояснюють концепцію моля в гумористичній формі.</p>
+                    <div class="idea-num">IDEA 02</div>
+                    <span class="idea-icon" aria-hidden="true">🏆</span>
+                    <h3>Хімічний квіз між класами</h3>
+                    <p>Командні змагання на швидкість і точність розв'язування задач.</p>
                 </div>
                 <div class="idea-card">
-                    <div class="idea-num">/ 03</div>
-                    <span class="idea-icon">🏃</span>
-                    <h3>Квест-кімната</h3>
-                    <p>Escape room, де розв'язання хімічних загадок є ключем до виходу з кімнати.</p>
+                    <div class="idea-num">IDEA 03</div>
+                    <span class="idea-icon" aria-hidden="true">🎨</span>
+                    <h3>Конкурс плакатів</h3>
+                    <p>«Число Авогадро навколо нас» — творчі роботи з хімічним змістом.</p>
                 </div>
                 <div class="idea-card">
-                    <div class="idea-num">/ 04</div>
-                    <span class="idea-icon">🍪</span>
-                    <h3>Хімічна кулінарія</h3>
-                    <p>Приготування страв, де інгредієнти вимірюються в молях, або створення їжі, що візуалізує реакції.</p>
+                    <div class="idea-num">IDEA 04</div>
+                    <span class="idea-icon" aria-hidden="true">🔬</span>
+                    <h3>День відкритих лабораторій</h3>
+                    <p>Екскурсії та безпечні демонстраційні досліди для молодших класів.</p>
                 </div>
-                <div class="idea-card">
-                    <div class="idea-num">/ 05</div>
-                    <span class="idea-icon">🎨</span>
-                    <h3>Мурал «Хімія навколо»</h3>
-                    <p>Стінний розпис, який показує, як хімія присутня в повсякденному житті.</p>
-                </div>
-                <div class="idea-card">
-                    <div class="idea-num">/ 06</div>
-                    <span class="idea-icon">📱</span>
-                    <h3>Соціальні мережі</h3>
-                    <p>Кампанії з інфографікою, відео та цікавими фактами про хімію для широкої аудиторії.</p>
+            </div>
+
+            <!-- ===== CTA ===== -->
+            <div class="cta-box">
+                <h3>Долучайтеся до святкування!</h3>
+                <p>
+                    Запропонуйте власне авторське завдання з теми «Моль. Число Авогадро»
+                    та поділіться ним із класом.
+                </p>
+                <ul class="cta-list">
+                    <li>Завдання має містити коректні хімічні дані та одиниці вимірювання.</li>
+                    <li>Додайте коротку підказку або критерії оцінювання.</li>
+                    <li>Оформіть роботу у зручному форматі (текст, слайд, картка).</li>
+                </ul>
+                <p>
+                    <strong>Формат:</strong> авторська задача · квест · кейс · головоломка.
+                </p>
+                <div class="deadline">
+                    ⏰ Дедлайн подачі: <span>23 жовтня, 6:02</span>
                 </div>
             </div>
         </section>
@@ -1012,36 +1633,78 @@
     </main>
 
     <footer>
-        <div class="footer-formula">6.02 × 10²³</div>
-        <p>🧪 День Моля — свято, яке доводить: хімія може бути веселою</p>
-        <p>Зроблено з ♥ та періодичною таблицею</p>
+        <div class="footer-formula">n = m / M &nbsp;·&nbsp; N = n · N<sub>A</sub></div>
+        <p>День Моля · Авторські цікаві завдання з хімії</p>
+        <p>Номінація «Авторські цікаві завдання з хімії» · 2026</p>
     </footer>
 
     <script>
-        function checkAnswer(button, isCorrect) {
-            const optionsContainer = button.parentElement;
-            const buttons = optionsContainer.querySelectorAll('.quiz-btn');
-            const feedback = document.getElementById('quizFeedback');
+        (function () {
+            'use strict';
 
-            buttons.forEach(function(btn) {
-                btn.disabled = true;
-            });
+            var quizBox = document.getElementById('quizBox');
+            var feedback = document.getElementById('quizFeedback');
+            var buttons = quizBox.querySelectorAll('.quiz-btn');
+            var answered = false;
 
-            if (isCorrect) {
-                button.classList.add('correct');
-                feedback.textContent = '✅ Правильно! Час 6:02 кодує число Авогадро — 6.02 × 10²³ частинок у молі.';
-                feedback.className = 'quiz-feedback show success';
-            } else {
-                button.classList.add('wrong');
-                buttons.forEach(function(btn) {
-                    if (btn.textContent.indexOf('Число Авогадро') !== -1) {
-                        btn.classList.add('correct');
+            function handleAnswer(btn) {
+                if (answered) return;
+                answered = true;
+
+                var isCorrect = btn.getAttribute('data-correct') === 'true';
+
+                buttons.forEach(function (b) {
+                    b.disabled = true;
+                    if (b.getAttribute('data-correct') === 'true') {
+                        b.classList.add('correct');
                     }
                 });
-                feedback.textContent = '❌ Не зовсім. Правильна відповідь — B, виділена зеленим.';
-                feedback.className = 'quiz-feedback show error';
+
+                if (isCorrect) {
+                    btn.classList.add('correct');
+                    feedback.textContent = '✅ Правильно! Стала Авогадро — 6,022 × 10²³ моль⁻¹.';
+                    feedback.className = 'quiz-feedback show success';
+                } else {
+                    btn.classList.add('wrong');
+                    feedback.textContent = '❌ Не зовсім. Правильна відповідь — 6,022 × 10²³ моль⁻¹ (варіант B).';
+                    feedback.className = 'quiz-feedback show error';
+                }
             }
-        }
+
+            buttons.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    handleAnswer(btn);
+                });
+            });
+
+            // Плавна поява секцій при прокручуванні (з повагою до prefers-reduced-motion)
+            var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            if (!reduceMotion && 'IntersectionObserver' in window) {
+                var sections = document.querySelectorAll('section');
+
+                // Скидаємо початковий CSS-стан для тих, що вже видно
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.08 });
+
+                sections.forEach(function (section) {
+                    observer.observe(section);
+                });
+            } else {
+                // Без анімацій — усе одразу видиме
+                document.querySelectorAll('section').forEach(function (s) {
+                    s.style.opacity = '1';
+                    s.style.transform = 'none';
+                });
+            }
+        })();
     </script>
 
 </body>
