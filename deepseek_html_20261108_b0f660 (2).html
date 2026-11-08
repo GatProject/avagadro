@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>День Моля · 6.02×10²³</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #0a0e27;
+            --bg-soft: #131a3a;
+            --card: #1a2247;
+            --card-hover: #212a55;
+            --neon: #00f5d4;
+            --neon-2: #f15bb5;
+            --neon-3: #fee440;
+            --neon-4: #9b5de5;
+            --text: #e8ecff;
+            --text-dim: #8b93b8;
+            --border: rgba(0, 245, 212, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Анімований фон з частинками */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(0, 245, 212, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(155, 93, 229, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(241, 91, 181, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseBg 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        /* ===== ШАПКА ===== */
+        header {
+            position: relative;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon);
+            top: -150px;
+            left: -100px;
+            animation: float1 12s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            width: 350px;
+            height: 350px;
+            background: var(--neon-4);
+            top: -100px;
+            right: -100px;
+            animation: float2 14s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 30px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-40px, 40px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tag {
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--neon);
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--neon);
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            background: rgba(0, 245, 212, 0.05);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--neon) 0%, var(--neon-3) 50%, var(--neon-2) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(0, 245, 212, 0.3));
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-dim);
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Число Авогадро в шапці */
+        .avogadro-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 700;
+            color: var(--neon-3);
+            padding: 0.75rem 1.5rem;
+            margin-top: 2rem;
+            background: rgba(254, 228, 64, 0.08);
+            border: 1px solid rgba(254, 228, 64, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(254, 228, 64, 0.15);
+            text-shadow: 0 0 15px rgba(254, 228, 64, 0.5);
+        }
+
+        .avogadro-hero .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--neon-3);
+            box-shadow: 0 0 10px var(--neon-3);
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ===== НАВІГАЦІЯ ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover,
+        nav a:focus-visible {
+            color: var(--neon);
+            border-color: var(--neon);
+            background: rgba(0, 245, 212, 0.08);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+            outline: none;
+        }
+
+        /* ===== ОСНОВНИЙ КОНТЕНТ ===== */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        section:nth-child(1) { animation-delay: 0.05s; }
+        section:nth-child(2) { animation-delay: 0.1s; }
+        section:nth-child(3) { animation-delay: 0.15s; }
+        section:nth-child(4) { animation-delay: 0.2s; }
+        section:nth-child(5) { animation-delay: 0.25s; }
+        section:nth-child(6) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--neon);
+            opacity: 0.7;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        h2 .accent {
+            color: var(--neon);
+        }
+
+        section > p {
+            color: #c4cbf0;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+            max-width: 750px;
+        }
+
+        /* ===== ІСТОРІЯ — TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon), var(--neon-4), var(--neon-2));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.75rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -2rem;
+            top: 8px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 2px solid var(--neon);
+            box-shadow: 0 0 12px var(--neon);
+        }
+
+        .timeline-year {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--neon);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item p {
+            color: #c4cbf0;
+            font-size: 0.98rem;
+        }
+
+        /* ===== СТАТИСТИКА ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 245, 212, 0.4);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-value {
+            font-family: 'Courier New', monospace;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--neon);
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(0, 245, 212, 0.4);
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+
+        /* ===== ТРАДИЦІЇ ===== */
+        .traditions {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .tradition-item {
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            padding: 1.25rem 1.5rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tradition-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--neon);
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.3s ease;
+        }
+
+        .tradition-item:hover {
+            background: var(--card-hover);
+            border-color: rgba(0, 245, 212, 0.3);
+            transform: translateX(6px);
+        }
+
+        .tradition-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .tradition-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            line-height: 1;
+            filter: drop-shadow(0 0 10px rgba(0, 245, 212, 0.3));
+        }
+
+        .tradition-body h4 {
+            color: var(--neon);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .tradition-body p {
+            color: #b8c0e0;
+            font-size: 0.92rem;
+            margin: 0;
+        }
+
+        /* ===== ЖАРТ ===== */
+        .joke {
+            margin-top: 2rem;
+            padding: 1.5rem 1.75rem;
+            background: linear-gradient(135deg, rgba(254, 228, 64, 0.08) 0%, rgba(241, 91, 181, 0.05) 100%);
+            border: 1px solid rgba(254, 228, 64, 0.3);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .joke::before {
+            content: "// ЖАРТ";
+            position: absolute;
+            top: -10px;
+            left: 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-3);
+            background: var(--bg);
+            padding: 0 0.5rem;
+            letter-spacing: 0.1em;
+        }
+
+        .joke p {
+            color: #d8ddf0;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .joke p:last-child {
+            margin-bottom: 0;
+        }
+
+        .joke .punchline {
+            color: var(--neon-3);
+            font-weight: 700;
+            font-style: normal;
+            font-size: 1.05rem;
+            text-shadow: 0 0 15px rgba(254, 228, 64, 0.3);
+        }
+
+        /* ===== ЦІКАВІ ФАКТИ ===== */
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .fact {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.4rem 1.5rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .fact:hover {
+            border-color: rgba(254, 228, 64, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .fact .fact-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-3);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.5rem;
+        }
+
+        .fact p {
+            font-size: 0.92rem;
+            color: #c4cbf0;
+            margin: 0;
+        }
+
+        .fact strong {
+            color: var(--neon);
+        }
+
+        /* ===== КАЛЬКУЛЯТОР ===== */
+        .calc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .calc::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(0, 245, 212, 0.18) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            position: relative;
+        }
+
+        .calc-field label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+
+        .calc-field input,
+        .calc-field select {
+            width: 100%;
+            background: var(--bg-soft);
+            border: 1px solid rgba(155, 93, 229, 0.35);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            color: var(--text);
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .calc-field input:focus,
+        .calc-field select:focus {
+            outline: none;
+            border-color: var(--neon);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        .calc-result {
+            margin-top: 1.5rem;
+            padding: 1.25rem 1.5rem;
+            background: rgba(0, 245, 212, 0.07);
+            border: 1px solid rgba(0, 245, 212, 0.3);
+            border-radius: 14px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.98rem;
+            color: var(--neon);
+            position: relative;
+            line-height: 1.8;
+            word-break: break-word;
+        }
+
+        .calc-result .res-label {
+            color: var(--text-dim);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .calc-result strong {
+            font-size: 1.1rem;
+            text-shadow: 0 0 15px rgba(0, 245, 212, 0.4);
+        }
+
+        /* ===== ВІКТОРИНА ===== */
+        .quiz {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: clamp(1.5rem, 4vw, 2.25rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(155, 93, 229, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .quiz-progress {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .quiz-progress-text {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--neon-4);
+            letter-spacing: 0.1em;
+        }
+
+        .quiz-score {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--neon);
+            letter-spacing: 0.05em;
+        }
+
+        .quiz-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(155, 93, 229, 0.2);
+            border-radius: 50px;
+            overflow: hidden;
+            margin-bottom: 1.75rem;
+        }
+
+        .quiz-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--neon-4), var(--neon));
+            border-radius: 50px;
+            transition: width 0.4s ease;
+            box-shadow: 0 0 12px rgba(0, 245, 212, 0.5);
+        }
+
+        .quiz-question {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .quiz-question::before {
+            content: "?";
+            font-family: 'Courier New', monospace;
+            color: var(--neon-2);
+            font-size: 1.4rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        .quiz-btn {
+            background: var(--bg-soft);
+            border: 1px solid rgba(155, 93, 229, 0.3);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-size: 0.98rem;
+            font-family: inherit;
+            color: var(--text);
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            font-weight: 500;
+        }
+
+        .quiz-btn .marker {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--neon-4);
+            flex-shrink: 0;
+            transition: color 0.25s ease;
+        }
+
+        .quiz-btn:hover:not(:disabled) {
+            border-color: var(--neon-4);
+            background: rgba(155, 93, 229, 0.12);
+            transform: translateX(6px);
+            box-shadow: 0 0 25px rgba(155, 93, 229, 0.2);
+        }
+
+        .quiz-btn:hover:not(:disabled) .marker {
+            color: var(--neon);
+        }
+
+        .quiz-btn:disabled {
+            cursor: default;
+            opacity: 0.85;
+        }
+
+        .quiz-btn.correct {
+            background: rgba(0, 245, 212, 0.12);
+            border-color: var(--neon);
+            color: var(--neon);
+            font-weight: 700;
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.25);
+        }
+
+        .quiz-btn.correct .marker {
+            color: var(--neon);
+        }
+
+        .quiz-btn.wrong {
+            background: rgba(241, 91, 181, 0.12);
+            border-color: var(--neon-2);
+            color: var(--neon-2);
+            font-weight: 600;
+        }
+
+        .quiz-btn.wrong .marker {
+            color: var(--neon-2);
+        }
+
+        .quiz-feedback {
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            display: none;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+            animation: fadeInUp 0.4s ease;
+        }
+
+        .quiz-feedback.success {
+            background: rgba(0, 245, 212, 0.1);
+            border-left: 3px solid var(--neon);
+            color: var(--neon);
+        }
+
+        .quiz-feedback.error {
+            background: rgba(241, 91, 181, 0.1);
+            border-left: 3px solid var(--neon-2);
+            color: var(--neon-2);
+        }
+
+        .quiz-nav {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .quiz-next,
+        .quiz-restart {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid var(--neon);
+        }
+
+        .quiz-next {
+            background: var(--neon);
+            color: var(--bg);
+        }
+
+        .quiz-next:hover {
+            box-shadow: 0 0 30px rgba(0, 245, 212, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .quiz-next:disabled {
+            opacity: 0.4;
+            cursor: default;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .quiz-restart {
+            background: transparent;
+            color: var(--neon);
+        }
+
+        .quiz-restart:hover {
+            background: rgba(0, 245, 212, 0.1);
+            box-shadow: 0 0 20px rgba(0, 245, 212, 0.2);
+        }
+
+        .quiz-final {
+            display: none;
+            text-align: center;
+            padding: 1.5rem 0 0.5rem;
+            position: relative;
+        }
+
+        .quiz-final.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .quiz-final .final-score {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--neon);
+            text-shadow: 0 0 40px rgba(0, 245, 212, 0.5);
+            line-height: 1.1;
+        }
+
+        .quiz-final .final-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .quiz-final .final-msg {
+            font-size: 1.05rem;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ===== ІДЕЇ / CARDS ===== */
+        .ideas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .idea-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.75rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s ease;
+        }
+
+        .idea-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            padding: 1px;
+            background: linear-gradient(135deg, transparent, transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+        }
+
+        .idea-card:hover {
+            transform: translateY(-6px);
+            background: var(--card-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .idea-card:hover::after {
+            opacity: 1;
+            background: linear-gradient(135deg, var(--neon), var(--neon-4), var(--neon-2));
+        }
+
+        .idea-num {
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--neon-4);
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+
+        .idea-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .idea-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .idea-card p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ===== ФУТЕР ===== */
+        footer {
+            position: relative;
+            z-index: 1;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: rgba(10, 14, 39, 0.6);
+        }
+
+        footer .footer-formula {
+            font-family: 'Courier New', monospace;
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            font-weight: 800;
+            color: var(--neon);
+            text-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        footer p + p {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 640px) {
+            header {
+                padding: 3.5rem 1rem 3rem;
+            }
+
+            .glow-1, .glow-2 {
+                filter: blur(60px);
+            }
+
+            nav a {
+                padding: 0.5rem 0.9rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                padding: 2rem 1rem 3.5rem;
+            }
+
+            section {
+                margin-bottom: 3rem;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -1.5rem;
+            }
+
+            .tradition-item {
+                padding: 1rem 1.15rem;
+                gap: 1rem;
+            }
+
+            .tradition-icon {
+                font-size: 1.35rem;
+            }
+        }
+
+        /* ===== ДОСТУПНІСТЬ ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--neon);
+            outline-offset: 3px;
+        }
+
+        ::selection {
+            background: var(--neon);
+            color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="header-content">
+            <span class="tag">Mole Day · 23.10</span>
+            <h1>Свято<br>числа Авогадро</h1>
+            <p class="subtitle">Дізнайся, як одна з найбільших констант у хімії перетворилась на найвеселіше свято науки</p>
+            <div class="avogadro-hero">
+                <span class="dot"></span>
+                <span>6.02 × 10²³</span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </header>
+
+    <nav aria-label="Навігація">
+        <ul>
+            <li><a href="#history">Історія</a></li>
+            <li><a href="#traditions">Традиції</a></li>
+            <li><a href="#facts">Факти</a></li>
+            <li><a href="#calc">Калькулятор</a></li>
+            <li><a href="#quiz">Вікторина</a></li>
+            <li><a href="#ideas">Ідеї</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- ІСТОРІЯ -->
+        <section id="history">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <h2>Як <span class="accent">усе почалося</span></h2>
+            </div>
+
+            <p>День Моля відзначають <strong style="color: var(--neon);">23 жовтня з 6:02 до 18:02</strong> — ці цифри кодують число Авогадро, яке визначає кількість частинок в одному молі речовини.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">6.02</div>
+                    <div class="stat-label">× 10²³</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1991</div>
+                    <div class="stat-label">Рік заснування</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">02:23</div>
+                    <div class="stat-label">Формат часу</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">∞</div>
+                    <div class="stat-label">Частинок у молі</div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1980-ТІ</div>
+                    <p>Вчителька <strong style="color: var(--text);">Маргарет Крістоф</strong> публікує статтю в журналі <em>The Science Teacher</em>, де вперше пропонує ідею святкування Дня Моля.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">15.05.1991</div>
+                    <p>Учитель хімії <strong style="color: var(--text);">Моріс Олер</strong> з міста Прері-дю-Ш'єн (Вісконсін, США) засновує Національний фонд Дня Моля.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">СЬОГОДНІ</div>
+                    <p>Свято відзначають у школах, університетах та наукових спільнотах США, Канади, Австралії, Південної Африки та багатьох інших країн світу.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ТРАДИЦІЇ -->
+        <section id="traditions">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2>Як <span class="accent">святкують</span></h2>
+            </div>
+
+            <p>День Моля — це не лише про науку, а й про творчість, гумор та їжу. Ось найпопулярніші традиції:</p>
+
+            <div class="traditions">
+                <div class="tradition-item">
+                    <span class="tradition-icon">🍰</span>
+                    <div class="tradition-body">
+                        <h4>Моль-кулінарія</h4>
+                        <p>Випічка у формі молекул, печиво «моль-асси», торт «Моль» та інші смаколики з хімічним підтекстом.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">👑</span>
+                    <div class="tradition-body">
+                        <h4>Коронація Короля та Королеви</h4>
+                        <p>У деяких університетах обирають почесних «монархів» свята — найактивніших студентів-хіміків.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🪅</span>
+                    <div class="tradition-body">
+                        <h4>Моль-ата</h4>
+                        <p>Традиційна піньята у формі крота — гра слів: <em>mole</em> (моль) + <em>piñata</em> (піньята).</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🎭</span>
+                    <div class="tradition-body">
+                        <h4>Тематичні костюми</h4>
+                        <p>Учні вдягаються в костюми кротів, молекул або окремих хімічних елементів з таблиці Менделєєва.</p>
+                    </div>
+                </div>
+                <div class="tradition-item">
+                    <span class="tradition-icon">🏆</span>
+                    <div class="tradition-body">
+                        <h4>Конкурси проєктів</h4>
+                        <p>Створення постерів, віршів, коміксів, пісень та відео про моль і хімію — від учнів до професорів.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="joke">
+                <p>— Де Авогадро зупинявся у відпустці?</p>
+                <p class="punchline">— У мотель-лі! 🏨</p>
+            </div>
+        </section>
+
+        <!-- ЦІКАВІ ФАКТИ -->
+        <section id="facts">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2>Цікаві <span class="accent">факти</span></h2>
+            </div>
+
+            <p>Кілька чисел і деталей, які допомагають відчути масштаб числа Авогадро.</p>
+
+            <div class="facts">
+                <div class="fact">
+                    <div class="fact-num">/ 01</div>
+                    <p>Якби ви мали <strong>1 моль піщинок</strong>, ними можна було б покрити всю поверхню Землі шаром завтовшки приблизно з багатоповерхівку.</p>
+                </div>
+                <div class="fact">
+                    <div class="fact-num">/ 02</div>
+                    <p><strong>1 моль води</strong> — це приблизно 18 мл, або трохи більше однієї столової ложки. Але в ньому — 6.02 × 10²³ молекул H₂O.</p>
+                </div>
+                <div class="fact">
+                    <div class="fact-num">/ 03</div>
+                    <p>Якби ви рахували по одній частинці за секунду, на підрахунок одного моля знадобилося б близько <strong>19 квадрильйонів років</strong>.</p>
+                </div>
+                <div class="fact">
+                    <div class="fact-num">/ 04</div>
+                    <p>Число Авогадро назване на честь італійського вченого <strong>Амедео Авогадро</strong> (1776–1856), хоча за життя його роботи не були широко визнані.</p>
+                </div>
+                <div class="fact">
+                    <div class="fact-num">/ 05</div>
+                    <p>Станом на 2019 рік число Авогадро <strong>визначене точно</strong> через нове визначення моля в SI: Nₐ = 6.02214076 × 10²³ моль⁻¹.</p>
+                </div>
+                <div class="fact">
+                    <div class="fact-num">/ 06</div>
+                    <p>У День Моля ентузіасти іноді святкують і <strong>«Моль-тиждень»</strong> — тиждень, що містить 23 жовтня, з тематичними днями та челенджами.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- КАЛЬКУЛЯТОР -->
+        <section id="calc">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <h2>Міні-<span class="accent">калькулятор</span></h2>
+            </div>
+
+            <p>Введи кількість речовини в молях — і побачиш, скільки це частинок. Або навпаки: переведи кількість частинок у молі.</p>
+
+            <div class="calc">
+                <div class="calc-grid">
+                    <div class="calc-field">
+                        <label for="calcMode">Що перерахувати?</label>
+                        <select id="calcMode">
+                            <option value="molesToParticles">Молі → Частинки</option>
+                            <option value="particlesToMoles">Частинки → Молі</option>
+                        </select>
+                    </div>
+                    <div class="calc-field">
+                        <label for="calcInput" id="calcInputLabel">Кількість речовини (моль)</label>
+                        <input type="number" id="calcInput" value="1" min="0" step="any" inputmode="decimal" aria-describedby="calcHint">
+                    </div>
+                </div>
+
+                <div class="calc-result" id="calcResult" role="status" aria-live="polite">
+                    <span class="res-label">Результат:</span>
+                    <strong>6.02 × 10²³ частинок</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- ВІКТОРИНА -->
+        <section id="quiz">
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <h2>Перевір <span class="accent">себе</span></h2>
+            </div>
+
+            <div class="quiz">
+                <div class="quiz-progress">
+                    <span class="quiz-progress-text" id="quizProgressText">Питання 1 з 8</span>
+                    <span class="quiz-score" id="quizScore">Бали: 0</span>
+                </div>
+
+                <div class="quiz-bar">
+                    <div class="quiz-bar-fill" id="quizBarFill"></div>
+                </div>
+
+                <div id="quizStage">
+                    <div class="quiz-question" id="quizQuestion">Завантаження…</div>
+                    <div class="quiz-options" id="quizOptions" role="group" aria-label="Варіанти відповіді"></div>
+                    <div class="quiz-feedback" id="quizFeedback" role="status" aria-live="polite"></div>
+                    <div class="quiz-nav">
+                        <button class="quiz-next" id="quizNext" type="button" disabled>Далі →</button>
+                    </div>
+                </div>
+
+                <div class="quiz-final" id="quizFinal">
+                    <div class="final-label">Твій результат</div>
+                    <div class="final-score" id="finalScore">0 / 8</div>
+                    <div class="final-msg" id="finalMsg"></div>
+                    <div class="quiz-nav" style="justify-content: center;">
+                        <button class="quiz-restart" id="quizRestart" type="button">Спробувати ще раз</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ІДЕЇ -->
+        <section id="ideas">
+            <div class="section-header">
+                <span class="section-num">06</span>
+                <h2>Ідеї для <span class="accent">популяризації</span></h2>
+            </div>
+
+            <p>Незвичайні способи зацікавити хімією — від кросвордів до муралів.</p>
+
+            <div class="ideas-grid">
+                <div class="idea-card">
+                    <div class="idea-num">/ 01</div>
+                    <span class="idea-icon">🧩</span>
+                    <h3>Хімічний кросворд</h3>
+                    <p>Італійські університети проводять конкурс кросвордів, де слова складаються виключно з хімічних символів елементів.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 02</div>
+                    <span class="idea-icon">🎬</span>
+                    <h3>Хімічне кіно</h3>
+                    <p>Створення освітніх відео, де учні грають ролі та пояснюють концепцію моля в гумористичній формі.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 03</div>
+                    <span class="idea-icon">🏃</span>
+                    <h3>Квест-кімната</h3>
+                    <p>Escape room, де розв'язання хімічних загадок є ключем до виходу з кімнати.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 04</div>
+                    <span class="idea-icon">🍪</span>
+                    <h3>Хімічна кулінарія</h3>
+                    <p>Приготування страв, де інгредієнти вимірюються в молях, або створення їжі, що візуалізує реакції.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 05</div>
+                    <span class="idea-icon">🎨</span>
+                    <h3>Мурал «Хімія навколо»</h3>
+                    <p>Стінний розпис, який показує, як хімія присутня в повсякденному житті.</p>
+                </div>
+                <div class="idea-card">
+                    <div class="idea-num">/ 06</div>
+                    <span class="idea-icon">📱</span>
+                    <h3>Соціальні мережі</h3>
+                    <p>Кампанії з інфографікою, відео та цікавими фактами про хімію для широкої аудиторії.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-formula">6.02 × 10²³</div>
+        <p>🧪 День Моля — свято, яке доводить: хімія може бути веселою</p>
+        <p>Зроблено з ♥ та періодичною таблицею</p>
+    </footer>
+
+    <script>
+        /* ===== КАЛЬКУЛЯТОР ===== */
+        (function () {
+            const AVOGADRO = 6.02214076e23;
+            const modeSelect = document.getElementById('calcMode');
+            const inputField = document.getElementById('calcInput');
+            const inputLabel = document.getElementById('calcInputLabel');
+            const resultBox = document.getElementById('calcResult');
+
+            function formatNumber(num) {
+                if (!isFinite(num)) return '—';
+                if (num === 0) return '0';
+                if (Math.abs(num) >= 1e16 || Math.abs(num) < 1e-4) {
+                    return num.toExponential(4).replace('e+', ' × 10^').replace('e-', ' × 10^-');
+                }
+                return num.toLocaleString('uk-UA', { maximumFractionDigits: 6 });
+            }
+
+            function formatParticles(num) {
+                if (!isFinite(num)) return '—';
+                if (num === 0) return '0 частинок';
+                if (num >= 1e16 || num < 1e-4) {
+                    return num.toExponential(4).replace('e+', ' × 10^').replace('e-', ' × 10^-') + ' частинок';
+                }
+                return num.toLocaleString('uk-UA', { maximumFractionDigits: 4 }) + ' частинок';
+            }
+
+            function updateCalc() {
+                const mode = modeSelect.value;
+                const raw = parseFloat(inputField.value);
+
+                if (mode === 'molesToParticles') {
+                    inputLabel.textContent = 'Кількість речовини (моль)';
+                    if (isNaN(raw) || raw < 0) {
+                        resultBox.innerHTML = '<span class="res-label">Результат:</span><br><strong>—</strong>';
+                        return;
+                    }
+                    const particles = raw * AVOGADRO;
+                    resultBox.innerHTML = '<span class="res-label">Результат:</span><br><strong>' + formatParticles(particles) + '</strong>';
+                } else {
+                    inputLabel.textContent = 'Кількість частинок';
+                    if (isNaN(raw) || raw < 0) {
+                        resultBox.innerHTML = '<span class="res-label">Результат:</span><br><strong>—</strong>';
+                        return;
+                    }
+                    const moles = raw / AVOGADRO;
+                    resultBox.innerHTML = '<span class="res-label">Результат:</span><br><strong>' + formatNumber(moles) + ' моль</strong>';
+                }
+            }
+
+            modeSelect.addEventListener('change', updateCalc);
+            inputField.addEventListener('input', updateCalc);
+            updateCalc();
+        })();
+
+        /* ===== ВІКТОРИНА: 8 ЗАВДАНЬ ===== */
+        (function () {
+            const questions = [
+                {
+                    question: 'Що символізує час святкування Дня Моля (6:02)?',
+                    options: [
+                        'Початок робочого дня хіміка',
+                        'Число Авогадро (6.02 × 10²³)',
+                        'Кількість елементів у таблиці Менделєєва',
+                        'Рік заснування свята'
+                    ],
+                    correct: 1,
+                    explanation: 'Час 6:02 кодує число Авогадро — 6.02 × 10²³ частинок у молі.'
+                },
+                {
+                    question: 'У якому році було засновано Національний фонд Дня Моля?',
+                    options: ['1980', '1991', '1999', '2005'],
+                    correct: 1,
+                    explanation: 'Моріс Олер заснував фонд 15 травня 1991 року.'
+                },
+                {
+                    question: 'Скільки частинок міститься в одному молі речовини?',
+                    options: ['6.02 × 10¹²', '6.02 × 10¹⁸', '6.02 × 10²³', '6.02 × 10³⁰'],
+                    correct: 2,
+                    explanation: 'Це число Авогадро: приблизно 6.02 × 10²³ частинок в одному молі.'
+                },
+                {
+                    question: 'Яка з цих традицій пов’язана з Днем Моля?',
+                    options: [
+                        'Запуск повітряних зміїв',
+                        'Моль-ата (піньята у формі крота)',
+                        'Нічний марафон',
+                        'Феєрверки з різними металами'
+                    ],
+                    correct: 1,
+                    explanation: 'Моль-ата — це піньята у формі крота, гра слів mole + piñata.'
+                },
+                {
+                    question: 'Хто запропонував ідею святкування Дня Моля у статті 1980-х років?',
+                    options: [
+                        'Амедео Авогадро',
+                        'Моріс Олер',
+                        'Маргарет Крістоф',
+                        'Дмитро Менделєєв'
+                    ],
+                    correct: 2,
+                    explanation: 'Вчителька Маргарет Крістоф опублікувала статтю з ідеєю свята в журналі The Science Teacher.'
+                },
+                {
+                    question: 'У якому місті вчитель Моріс Олер заснував Національний фонд Дня Моля?',
+                    options: [
+                        'Прері-дю-Ш\'єн, Вісконсін',
+                        'Нью-Йорк, Нью-Йорк',
+                        'Лос-Анджелес, Каліфорнія',
+                        'Чикаго, Іллінойс'
+                    ],
+                    correct: 0,
+                    explanation: 'Моріс Олер працював у місті Прері-дю-Ш\'єн, штат Вісконсін (США).'
+                },
+                {
+                    question: 'Що таке «моль» у хімії?',
+                    options: [
+                        'Одиниця маси, що дорівнює 1 граму',
+                        'Кількість речовини, що містить 6.02 × 10²³ частинок',
+                        'Одиниця об’єму газів за нормальних умов',
+                        'Назва хімічного елемента'
+                    ],
+                    correct: 1,
+                    explanation: 'Моль — це одиниця кількості речовини в SI, що містить рівно 6.02 × 10²³ структурних частинок.'
+                },
+                {
+                    question: 'Яке твердження про число Авогадро правильне?',
+                    options: [
+                        'Воно змінюється залежно від температури',
+                        'Воно визначене точно з 2019 року',
+                        'Воно дорівнює 6.02 × 10²²',
+                        'Воно застосовується лише до газів'
+                    ],
+                    correct: 1,
+                    explanation: 'З 2019 року число Авогадро визначене точно: Nₐ = 6.02214076 × 10²³ моль⁻¹.'
+                }
+            ];
+
+            const stage = document.getElementById('quizStage');
+            const questionEl = document.getElementById('quizQuestion');
+            const optionsEl = document.getElementById('quizOptions');
+            const feedbackEl = document.getElementById('quizFeedback');
+            const nextBtn = document.getElementById('quizNext');
+            const progressText = document.getElementById('quizProgressText');
+            const scoreEl = document.getElementById('quizScore');
+            const barFill = document.getElementById('quizBarFill');
+            const finalBlock = document.getElementById('quizFinal');
+            const finalScore = document.getElementById('finalScore');
+            const finalMsg = document.getElementById('finalMsg');
+            const restartBtn = document.getElementById('quizRestart');
+
+            const markers = ['A', 'B', 'C', 'D'];
+            let currentIndex = 0;
+            let score = 0;
+            let answered = false;
+
+            function renderQuestion() {
+                answered = false;
+                const q = questions[currentIndex];
+                questionEl.textContent = q.question;
+                optionsEl.innerHTML = '';
+                feedbackEl.className = 'quiz-feedback';
+                feedbackEl.textContent = '';
+                nextBtn.disabled = true;
+                nextBtn.textContent = currentIndex === questions.length - 1 ? 'Результат →' : 'Далі →';
+
+                q.options.forEach(function (opt, i) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'quiz-btn';
+                    btn.innerHTML = '<span class="marker">' + markers[i] + '</span><span>' + opt + '</span>';
+                    btn.addEventListener('click', function () {
+                        selectAnswer(i, btn);
+                    });
+                    optionsEl.appendChild(btn);
+                });
+
+                updateProgress();
+            }
+
+            function updateProgress() {
+                progressText.textContent = 'Питання ' + (currentIndex + 1) + ' з ' + questions.length;
+                scoreEl.textContent = 'Бали: ' + score;
+                const pct = (currentIndex / questions.length) * 100;
+                barFill.style.width = pct + '%';
+            }
+
+            function selectAnswer(index, button) {
+                if (answered) return;
+                answered = true;
+                const q = questions[currentIndex];
+                const buttons = optionsEl.querySelectorAll('.quiz-btn');
+
+                buttons.forEach(function (btn) {
+                    btn.disabled = true;
+                });
+
+                if (index === q.correct) {
+                    button.classList.add('correct');
+                    score++;
+                    feedbackEl.className = 'quiz-feedback show success';
+                    feedbackEl.textContent = '✅ Правильно! ' + q.explanation;
+                } else {
+                    button.classList.add('wrong');
+                    buttons[q.correct].classList.add('correct');
+                    feedbackEl.className = 'quiz-feedback show error';
+                    feedbackEl.textContent = '❌ Не зовсім. ' + q.explanation;
+                }
+
+                scoreEl.textContent = 'Бали: ' + score;
+                nextBtn.disabled = false;
+            }
+
+            function nextQuestion() {
+                if (currentIndex < questions.length - 1) {
+                    currentIndex++;
+                    renderQuestion();
+                } else {
+                    showFinal();
+                }
+            }
+
+            function showFinal() {
+                stage.style.display = 'none';
+                finalBlock.classList.add('show');
+                finalScore.textContent = score + ' / ' + questions.length;
+                barFill.style.width = '100%';
+                progressText.textContent = 'Завершено';
+                scoreEl.textContent = 'Бали: ' + score;
+
+                let msg = '';
+                const ratio = score / questions.length;
+                if (ratio === 1) {
+                    msg = 'Бездоганно! Ти справжній знавець числа Авогадро. 🧪';
+                } else if (ratio >= 0.75) {
+                    msg = 'Чудовий результат! Хімія тебе любить. ⚗️';
+                } else if (ratio >= 0.5) {
+                    msg = 'Непогано! Ще трохи практики — і буде відмінно. 📚';
+                } else {
+                    msg = 'Є куди рости. Повертайся до фактів і спробуй ще раз! 🔬';
+                }
+                finalMsg.textContent = msg;
+            }
+
+            function restartQuiz() {
+                currentIndex = 0;
+                score = 0;
+                stage.style.display = '';
+                finalBlock.classList.remove('show');
+                renderQuestion();
+            }
+
+            nextBtn.addEventListener('click', nextQuestion);
+            restartBtn.addEventListener('click', restartQuiz);
+
+            renderQuestion();
+        })();
+    </script>
+
+</body>
+</html>
